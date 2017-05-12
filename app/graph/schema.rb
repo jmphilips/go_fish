@@ -61,23 +61,6 @@ AddCardMutation = GraphQL::Relay::Mutation.define do
   }
 end
 
-PlayerType = GraphQL::ObjectType.define do
-  name 'Player'
-  description 'A player in the gofish game'
-
-  field :id, !types.ID
-  field :name, !types.String
-end
-
-CardType = GraphQL::ObjectType.define do
-  name 'Card'
-  description 'A card in the deck'
-
-  field :id, !types.ID
-  field :suit, !types.String
-  field :card_number, !types.Int
-end
-
 Schema = GraphQL::Schema.define do
   query QueryType
   mutation MutationType
