@@ -2,6 +2,14 @@ class Card < ApplicationRecord
   belongs_to :player
   SUITS = %W{\u{2660} \u{2661}  \u{2662} \u{2663}}
 
+  def self.deal_hand(player_id)
+    count = 0
+    while count < 5
+     create_unique_card(player_id)
+     count += 1
+    end
+  end
+
   def self.create_unique_card(player_id)
     if Card.count < 52
       player = Player.find(player_id)
