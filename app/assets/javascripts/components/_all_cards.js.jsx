@@ -1,17 +1,19 @@
 var AllCards = React.createClass({
+ 
+    render() {
+    var cards = this.props.cards.map((card) => {
+      return (
+        <div key={card.id}>
+          <p>{card.card_number}{card.suit}</p>
+        </div>
+      )
+    });
 
-
-  getInitialState() {
-    return { cards: [] }
-  },
-
-  render() {
-    return (
+    return(
       <div>
-        <h1>All items components</h1>
+        {cards}
       </div>
     )
   }
 })
 
-Cards = Relay.createContainer()
