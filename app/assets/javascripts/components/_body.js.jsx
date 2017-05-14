@@ -17,15 +17,21 @@ var Body = React.createClass({
 
   },
 
-  handleSubmit(card) {
-    console.log(card)
+  handlePlayer(player) {
+    this.setState({ player: player })
+  },
+
+  handleCard(card) {
+    var newState = this.state.cards.concat(card);
+    this.setState({ cards: newState })
   },
 
   render() {
     return (
       <div>
         <AllCards cards={this.state.cards}/>
-        <NewCard handleSubmit={this.handleSubmit} />
+        <NewCard handleCard={this.handleCard} />
+        <NewPlayer handlePlayer={this.handlePlayer} />
       </div>
     )
   }
